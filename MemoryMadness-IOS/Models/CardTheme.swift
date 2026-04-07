@@ -9,8 +9,9 @@ enum CardTheme: String, CaseIterable, Codable {
     case christmas    = "🎄 CHRISTMAS"
     case easter       = "🐣 EASTER"
     case stPatricksDay = "☘️ ST. PATRICK'S DAY"
+    case saga         = "⚔️ SAGA"
 
-    // Returnerar bildnamnen för temat (9 unika bilder per tema)
+    // Returnerar bildnamnen för temat
     // I Android används drawable resource IDs — i iOS använder vi tillgångsnamn (Assets.xcassets)
     var themeSet: [String] {
         switch self {
@@ -22,11 +23,18 @@ enum CardTheme: String, CaseIterable, Codable {
             return (1...9).map { "easter\($0)" }     // easter1, easter2, ..., easter9
         case .stPatricksDay:
             return (1...9).map { "stpday\($0)" }     // stpday1, stpday2, ..., stpday9
+        case .saga:
+            return (1...12).map { "saga\($0)" }      // saga1, saga2, ..., saga12
         }
     }
 
     // Bilden som visas som förhandsgranskning i menyer
     var previewImageName: String {
-        themeSet.first ?? "card1"
+        switch self {
+        case .saga:
+            return "saga6"
+        default:
+            return themeSet.first ?? "card1"
+        }
     }
 }
