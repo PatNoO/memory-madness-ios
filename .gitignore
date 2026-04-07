@@ -1,0 +1,56 @@
+# Xcode
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+*.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+*.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v2
+!default.mode1v2
+*.mode2v2
+!default.mode2v2
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+
+# Build output
+build/
+DerivedData/
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Packages/
+Package.resolved
+
+# CocoaPods (not used, but included for safety)
+Pods/
+Podfile.lock
+
+# Carthage (not used, but included for safety)
+Carthage/Build/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Simulator
+*.xcscheme
+
+# Instruments
+*.trace
+
+# Crashlytics
+crashlytics-build.properties
+com_crashlytics_export_strings.csv
+
+# Claude Code
+.claude/
