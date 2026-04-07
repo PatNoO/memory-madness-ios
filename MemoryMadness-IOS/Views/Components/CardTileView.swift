@@ -16,13 +16,12 @@ struct CardTileView: View {
     var body: some View {
         ZStack {
             if isRevealed {
-                // Framsidan — kortets bild fyller hela kortets yta
-                // .frame(maxWidth/maxHeight: .infinity) är avgörande: det begränsar bildens
-                // layout-storlek till kortets storlek, annars expanderar ZStack och
-                // clipShape klippar fel storlek → bilden flödar in i grannkort.
+                // Framsidan — kortets bild visas med rätt proportioner
+                // .aspectRatio(contentMode: .fit) behåller bildproportionerna och förhindrar överflöde
+                // mellan kort (viktig för saga-bilderna som är 1200x1600 vs card-bilderna 942x1071)
                 Image(card.imageName)
                     .resizable()
-                    .scaledToFill()
+                    .aspectRatio(contentMode: .fit)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .opacity(card.isMatched ? 0.5 : 1.0)
             } else {
